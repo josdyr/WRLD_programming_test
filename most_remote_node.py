@@ -49,7 +49,8 @@ def get_most_remote_node():
 
     highest_nearest_neighbour_length = 0
     most_remote_node = None
-    for node in tqdm(all_nodes):
+    # for node in tqdm(all_nodes):
+    for node in all_nodes:
 
         # start = time.time()
 
