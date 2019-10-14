@@ -38,7 +38,7 @@ def get_most_remote_node():
 
     all_nodes = []
 
-    with open(file1) as f:
+    with open(file0) as f:
         for line in f: # loop through all lines/nodes
             x = int(line[:-1].split(sep=" ")[1])
             y = int(line[:-1].split(sep=" ")[2])
@@ -48,18 +48,17 @@ def get_most_remote_node():
     most_remote_node = None
     for node in all_nodes:
 
-        start = time.time()
+        # start = time.time()
 
         node.nearest_neighbour_length = get_nearest_neighbour_length(node, all_nodes)
         if node.nearest_neighbour_length > highest_nearest_neighbour_length:
             highest_nearest_neighbour_length = node.nearest_neighbour_length
             most_remote_node = node
 
-        end = time.time()
-        print(end - start)
+        # end = time.time()
+        # print(end - start)
 
     # return the node that has the highest nearest_neighbour_length
-    import ipdb; ipdb.set_trace()
     return most_remote_node
 
 def main():
@@ -70,7 +69,7 @@ def main():
             # calculate the largest Euclidian distance
     # return node with highest value for nearest neighbour
 
-     return get_most_remote_node()
+    print(get_most_remote_node())
 
 
 if __name__ == '__main__':
