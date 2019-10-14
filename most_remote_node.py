@@ -1,5 +1,6 @@
 import math
 import time
+from tqdm import tqdm
 
 
 file0 = "problem_small.txt"
@@ -9,9 +10,10 @@ class Node:
 
     nearest_neighbour_length = None
 
-    def __init__(self, x, y):
+    def __init__(self, x, y, name):
         self.x = x
         self.y = y
+        self.name = name
 
     def __repr__(self):
         return "({}, {})".format(self.x, self.y)
@@ -38,15 +40,16 @@ def get_most_remote_node():
 
     all_nodes = []
 
-    with open(file0) as f:
+    with open(file1) as f:
         for line in f: # loop through all lines/nodes
             x = int(line[:-1].split(sep=" ")[1])
             y = int(line[:-1].split(sep=" ")[2])
-            all_nodes.append(Node(x, y))
+            name = str(line[:-1].split(sep=" ")[0])
+            all_nodes.append(Node(x, y, name))
 
     highest_nearest_neighbour_length = 0
     most_remote_node = None
-    for node in all_nodes:
+    for node in tqdm(all_nodes):
 
         # start = time.time()
 
@@ -69,7 +72,7 @@ def main():
             # calculate the largest Euclidian distance
     # return node with highest value for nearest neighbour
 
-    print(get_most_remote_node())
+    print(get_most_remote_node().name)
 
 
 if __name__ == '__main__':
