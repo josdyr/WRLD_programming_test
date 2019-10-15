@@ -1,6 +1,6 @@
 import math
 import time
-from tqdm import tqdm
+# from tqdm import tqdm
 
 
 file0 = "problem_small.txt"
@@ -49,7 +49,7 @@ def get_most_remote_node():
 
     highest_nearest_neighbour_length = 0
     most_remote_node = None
-    # for node in tqdm(all_nodes):
+    # for node in tqdm(all_nodes): # Process bar
     for node in all_nodes:
 
         # start = time.time()
